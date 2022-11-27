@@ -1,0 +1,14 @@
+node_modules
+.dendron.*
+build
+seeds
+.next
+source
+pods/service-connections
+.venv
+tools/
+build.sh
+CONTRIBUTING.md
+.python-version
+.backup
+metadata.db

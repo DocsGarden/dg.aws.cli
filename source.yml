@@ -1,0 +1,89 @@
+# license (Required)
+# Gives title and link to source repo license
+license: 
+  # If multiple license files:
+  # - licenseType: The license associated with content (creative commons, normally)
+  # - licenseSource: Link to a summary license (LICENSE-SUMMARY, etc.) OR
+  #   if no summary license: the license associated with content (creative commons, normally)
+  # licenseType (Required)
+  licenseType: Creative Commons Attribution-ShareAlike 4.0 International
+  # licenseSource (Required)
+  # URL link to appropriate LICENSE* file,
+  # or to source license webpage if no source code LICENSE*
+  licenseSource: https://github.com/awsdocs/aws-cli-user-guide/blob/main/LICENSE-SUMMARY
+# topHierarchy (Required)
+# Single, top-level hierarchy title (no period/dot notation)
+# Example: aws
+# Example: msft
+topHierarchy: aws
+# vaultName (Required)
+# This is the name of the Dendron vault, which is used in a few places
+# - cross-vault style dendron backlinks (ex. [[dendron://<vaultName>/note.name]])
+# - in dendron.yml config
+vaultName: dg.aws.cli
+# source (Required)
+# Information about the source content being converted
+source:
+  # source.canonicalUrlBase (Required)
+  # A prefix link to the published version of the source content
+  canonicalUrlBase: https://docs.aws.amazon.com/cli/latest/userguide
+  # source.sourceUrlBase (Required)
+  # Direct link to the source repository
+  sourceUrlBase: https://github.com/awsdocs/aws-cli-user-guide
+  # source.sourceBranch (Required)
+  # Desired git branch of repo to convert
+  sourceBranch: main
+  # source.sourceType (Required)
+  # Only accepts GitHub at the moment
+  sourceType: github
+  # source.owner
+  owner:
+    # source.owner.name (Required)
+    # Name of company or organization
+    name: Amazon Web Services (AWS)
+    # source.owner.link (Required)
+    # Link to top-level code organization. If none, point to website homepage?
+    link: https://github.com/awsdocs
+  # source.path
+  path:
+    # source.path.root (Required)
+    # Where the source repository exists locally to run against
+    # NOTE: source/ is ignored by .gitignore by default to prevent writing sources to git
+    root: source/aws-cli-user-guide
+    # source.path.targets
+    targets:
+        # source.path.targets.path (Required)
+        # Directory path inside git repo where docs are directly located
+      - path: doc_source
+        canonicalUrlBase: https://docs.aws.amazon.com/cli/latest/userguide
+# bodySnatchers (Optional)
+# Does a plain-text find/replace substitution prior to text conversion
+bodySnatchers:
+  - find: "[!TIP]"
+    replace: " **TIP:**"
+  - find: "[!NOTE]"
+    replace: " **NOTE:**"
+  - find: "[!IMPORTANT]"
+    replace: " **IMPORTANT:**"
+  - find: "[!WARNING]"
+    replace: " **WARNING:**"
+  - find: "[!CAUTION]"
+    replace: " **CAUTION:**"
+  - find: "[!Tip]"
+    replace: " **Tip:**"
+  - find: "[!Note]"
+    replace: " **Note:**"
+  - find: "[!Important]"
+    replace: " **Important:**"
+  - find: "[!Warning]"
+    replace: " **Warning:**"
+  - find: "[!Caution]"
+    replace: " **Caution:**"
+  - find: "[ !["
+    replace: "!["
+  - find: "[!["
+    replace: "!["
+      #  - find: "](/"
+      #    replace: "](https://docs.microsoft.com/en-us/"
+  - find: "./../"
+    replace: "../"
